@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Our Firm | Marir Service Admin</title>
+    
+    <!-- Balises hreflang pour le SEO international -->
+    <link rel="alternate" hreflang="fr" href="https://www.marir-service.com/06-contact.html">
+    <link rel="alternate" hreflang="en" href="https://www.marir-service.com/en/06-contact.html">
+    <link rel="alternate" hreflang="ru" href="https://www.marir-service.com/en/06-contact.html">
+    <link rel="alternate" hreflang="de" href="https://www.marir-service.com/en/06-contact.html">
+    <link rel="alternate" hreflang="it" href="https://www.marir-service.com/en/06-contact.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.marir-service.com/06-contact.html">
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #0c1526;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #0c1526;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-contact-buttons {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .header-contact-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff !important;
+        }
+        .header-contact-buttons a[href^="tel"] {
+            background-color: #007aff !important;
+        }
+        .header-contact-buttons a[href*="whatsapp"],
+        .header-contact-buttons a.whatsapp,
+        .header-contact-buttons a[href*="wa.me"] {
+            background-color: #25d366 !important;
+        }
+        body > .header-contact-buttons {
+            display: none !important;
+        }
+        @media (max-width: 768px) {
+            header .header-contact-buttons {
+                display: none !important;
+            }
+            body > .header-contact-buttons {
+                display: inline-flex !important;
+                margin: 15px;
+            }
+        }
+        .content-section {
+            padding: 60px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        p {
+            font-size: 1.05rem;
+            color: #b9c2d4;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .contact-info, .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 6px;
+        }
+        .contact-info h3, .contact-form h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #b9c2d4;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: #0c1526;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: #ffffff;
+            font-family: 'Public Sans', sans-serif;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        button[type="submit"] {
+            background-color: #c5a059;
+            color: #0c1526;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div>
+                <a href="/en/index.html" style="color: #ffffff; text-decoration: none;"><strong style="font-size: 1.1rem;">Marir Service Admin</strong></a><br>
+                <span style="font-size: 0.8rem; color: #b9c2d4;">Private Concierge – French Riviera & Monaco</span>
+            </div>
+        </div>
+
+        <div class="header-contact-buttons">
+            <a href="tel:+33600000000">Call</a>
+            <a href="https://wa.me/33600000000" class="whatsapp">WhatsApp</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <select onchange="window.location.href=this.value" style="background:#0c1526; color:#b9c2d4; border:1px solid rgba(255,255,255,0.25); border-radius:2px; padding:6px 10px; font-size:0.78rem; font-family:'Public Sans',sans-serif;">
+                <option value="/06-contact.html">FR</option>
+                <option value="/en/06-contact.html" selected>EN</option>
+                <option value="/ru/06-contact.html">RU</option>
+                <option value="/de/06-contact.html">DE</option>
+                <option value="/it/06-contact.html">IT</option>
+            </select>
+            <a href="/en/06-contact.html" style="color: #ffffff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem;">Contact the firm</a>
+        </div>
+    </header>
+
+    <div class="header-contact-buttons">
+        <a href="tel:+33600000000">Call</a>
+            <a href="https://wa.me/33600000000" class="whatsapp">WhatsApp</a>
+    </div>
+
+    <section class="content-section">
+        <h1>Contact Our <span>Firm</span></h1>
+        <p>Get in touch with Marir Service Admin for tailored assistance with your administrative, automotive, or maritime procedures across the French Riviera and Monaco.</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Direct Assistance</h3>
+                <p><strong>Operational Area:</strong> French Riviera & Monaco</p>
+                <p><strong>Phone / WhatsApp:</strong> Available via quick action buttons above.</p>
+                <p><strong>Email:</strong> contact@marir-service.com</p>
+                <p>Our concierge team responds promptly to all confidential inquiries regarding vehicle registration, compliance, and custom administrative files.</p>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Inquiry</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
