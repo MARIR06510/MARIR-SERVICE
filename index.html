@@ -205,8 +205,52 @@
   footer .footer-col a{ color:#b9c2d4; }
   footer .footer-col a:hover{ color:#ffffff; }
   footer .footer-bottom{ color:#8d97ac; border-top:1px solid rgba(255,255,255,0.12); }
-  .header-contact-buttons{ display:inline-flex; gap:10px; align-items:center; margin-left:15px; }
 .domain h3, .domain p { color: #ffffff !important; }
+
+    /* --- Gestion de l'affichage des boutons selon l'appareil --- */
+
+    /* 1. Par défaut (version PC) : on cache les boutons s'ils sont en dehors du header et on les affiche dans le header */
+    body > .header-contact-buttons {
+        display: none !important;
+    }
+
+    /* 2. Version Téléphone (écrans de 768px ou moins) : l'inverse */
+    @media (max-width: 768px) {
+        /* On cache les boutons s'ils se trouvent dans le header PC */
+        header .header-contact-buttons {
+            display: none !important;
+        }
+        /* On affiche les boutons uniquement en dessous de l'en-tête */
+        body > .header-contact-buttons {
+            display: inline-flex !important;
+            margin: 15px;
+        }
+    }
+
+    /* --- Styles et couleurs des boutons (Bleu & Vert) --- */
+    .header-contact-buttons {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .header-contact-buttons a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #ffffff !important;
+    }
+    /* Bouton Appeler (Bleu) */
+    .header-contact-buttons a[href^="tel"] {
+        background-color: #007aff !important;
+    }
+    /* Bouton WhatsApp (Vert) */
+    .header-contact-buttons a[href*="whatsapp"] {
+        background-color: #25d366 !important;
+    }  
 </style>
 </head>
 <body>
