@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marir Service Admin | Administrative Concierge – Côte d’Azur & Monaco</title>
+    
+    <!-- Tag hreflang per SEO internazionale -->
+    <link rel="alternate" hreflang="fr" href="https://www.marir-service.com/index.html">
+    <link rel="alternate" hreflang="en" href="https://www.marir-service.com/en/01-index.html">
+    <link rel="alternate" hreflang="ru" href="https://www.marir-service.com/ru/01-index.html">
+    <link rel="alternate" hreflang="de" href="https://www.marir-service.com/de/01-index.html">
+    <link rel="alternate" hreflang="it" href="https://www.marir-service.com/it/01-index.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.marir-service.com/index.html">
+
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #0c1526;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #0c1526;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-contact-buttons {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .header-contact-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff !important;
+        }
+        .header-contact-buttons a[href^="tel"] {
+            background-color: #007aff !important;
+        }
+        .header-contact-buttons a[href*="whatsapp"],
+        .header-contact-buttons a.whatsapp,
+        .header-contact-buttons a[href*="wa.me"] {
+            background-color: #25d366 !important;
+        }
+        body > .header-contact-buttons {
+            display: none !important;
+        }
+        @media (max-width: 768px) {
+            header .header-contact-buttons {
+                display: none !important;
+            }
+            body > .header-contact-buttons {
+                display: inline-flex !important;
+                margin: 15px;
+            }
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        h1 span {
+            color: #c5a059;
+        }
+        p {
+            font-size: 1.15rem;
+            color: #b9c2d4;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: #c5a059;
+        }
+        .service-card h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #b9c2d4;
+            margin-bottom: 20px;
+        }
+        .service-card a {
+            color: #c5a059;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .service-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div>
+                <a href="/de/01-index.html" style="color: #ffffff; text-decoration: none;"><strong style="font-size: 1.1rem;">Marir Service Admin</strong></a><br>
+                <span style="font-size: 0.8rem; color: #b9c2d4;">Private Concierge – Côte d’Azur & Monaco</span>
+            </div>
+        </div>
+
+        <div class="header-contact-buttons">
+            <a href="tel:+33600000000">Anrufen</a>
+            <a href="https://wa.me/33600000000" class="whatsapp">WhatsApp</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <select onchange="window.location.href=this.value" style="background:#0c1526; color:#b9c2d4; border:1px solid rgba(255,255,255,0.25); border-radius:2px; padding:6px 10px; font-size:0.78rem; font-family:'Public Sans',sans-serif;">
+                <option value="/index.html">FR</option>
+                <option value="/en/01-index.html">EN</option>
+                <option value="/ru/01-index.html">RU</option>
+                <option value="/de/01-index.html" selected>DE</option>
+                <option value="/it/01-index.html">IT</option>
+            </select>
+            <a href="/de/06-contact.html" style="color: #ffffff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem;">Kontakt</a>
+        </div>
+    </header>
+
+    <div class="header-contact-buttons">
+        <a href="tel:+33600000000">Anrufen</a>
+        <a href="https://wa.me/33600000000" class="whatsapp">WhatsApp</a>
+    </div>
+
+    <div class="container">
+        <h1>Administrative Lösungen <span>der Spitzenklasse</span></h1>
+        <p>Spezialisiert auf Kfz- und Bootszulassungsverfahren in Frankreich und dem Fürstentum Monaco. Wir bieten einen privaten, akribischen und maßgeschneiderten Concierge-Service für eine anspruchsvolle Kundschaft.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Kfz-Zulassung in Frankreich</h3>
+                <p>Komplette Abwicklung von SIV- und ANTS-Formalitäten, Zollabfertigung und Steuerbescheinigungen (quitus fiscal).</p>
+                <a href="/de/02-ants-france.html">Mehr erfahren &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Fahrzeugangelegenheiten in Monaco</h3>
+                <p>Engagierte Unterstützung bei den Verfahren des Service des Titres de Circulation des Fürstentums.</p>
+                <a href="/de/03-stc-monaco.html">Mehr erfahren &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Maritime Dienstleistungen in Frankreich</h3>
+                <p>Zulassung, Eigentumswechsel und Zollabwicklung für Yachten und Boote in Frankreich.</p>
+                <a href="/de/04-maritime-france.html">Mehr erfahren &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Maritime Dienstleistungen in Monaco</h3>
+                <p>Administrative Verwaltung und Unterstützung für die Flagge und die maritimen Behörden Monacos.</p>
+                <a href="/de/05-maritime-monaco.html">Mehr erfahren &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
