@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marir Service Admin | Private Concierge – French Riviera & Monaco</title>
+    
+    <!-- hreflang tags for international SEO -->
+    <link rel="alternate" hreflang="fr" href="https://www.marir-service.com/index.html">
+    <link rel="alternate" hreflang="en" href="https://www.marir-service.com/en/01-index.html">
+    <link rel="alternate" hreflang="ru" href="https://www.marir-service.com/ru/01-index.html">
+    <link rel="alternate" hreflang="de" href="https://www.marir-service.com/de/01-index.html">
+    <link rel="alternate" hreflang="it" href="https://www.marir-service.com/it/01-index.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.marir-service.com/index.html">
+
+    <style>
+        /* Styles de base de la structure */
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #0c1526;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #0c1526;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-contact-buttons {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .header-contact-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #ffffff !important;
+        }
+        /* Bouton Appeler (Bleu) */
+        .header-contact-buttons a[href^="tel"] {
+            background-color: #007aff !important;
+        }
+        /* Bouton WhatsApp (Vert) */
+        .header-contact-buttons a[href*="whatsapp"],
+        .header-contact-buttons a.whatsapp,
+        .header-contact-buttons a[href*="wa.me"] {
+            background-color: #25d366 !important;
+        }
+
+        /* Gestion responsive de l'affichage des boutons */
+        body > .header-contact-buttons {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            header .header-contact-buttons {
+                display: none !important;
+            }
+            body > .header-contact-buttons {
+                display: inline-flex !important;
+                margin: 15px;
+            }
+        }
+
+        .hero-section {
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        h1 span {
+            color: #c5a059; /* Teinte dorée / standing */
+        }
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #b9c2d4;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+        .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px; max-width:1200px; margin:0 auto; padding:0 30px 60px; }
+        .service-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); padding:28px; border-radius:6px; }
+        .service-card:hover { border-color:#c5a059; }
+        .service-card h3 { color:#fff; margin-top:0; font-size:1.2rem; }
+        .service-card p { color:#b9c2d4; font-size:0.95rem; line-height:1.6; }
+        .service-card a { color:#c5a059; text-decoration:none; font-weight:bold; font-size:0.95rem; }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête du site -->
+    <header>
+        <div class="header-left">
+            <div>
+                <a href="/en/01-index.html" style="color: #ffffff; text-decoration: none;"><strong style="font-size: 1.1rem;">Marir Service Admin</strong></a><br>
+                <span style="font-size: 0.8rem; color: #b9c2d4;">Private Concierge – French Riviera & Monaco</span>
+            </div>
+        </div>
+
+        <!-- Boutons de contact (visibles dans le header sur PC) -->
+        <div class="header-contact-buttons">
+            <a href="tel:+33613088624">Call</a>
+            <a href="https://wa.me/33613088624?text=Hello,%20I%20would%20like%20some%20information." class="whatsapp">WhatsApp</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- Sélecteur de langue natif -->
+            <select onchange="window.location.href=this.value" style="background:#0c1526; color:#b9c2d4; border:1px solid rgba(255,255,255,0.25); border-radius:2px; padding:6px 10px; font-size:0.78rem; font-family:'Public Sans',sans-serif;">
+                <option value="/index.html">FR</option>
+                <option value="/en/01-index.html" selected>EN</option>
+                <option value="/ru/01-index.html">RU</option>
+                <option value="/de/01-index.html">DE</option>
+                <option value="/it/01-index.html">IT</option>
+            </select>
+            <a href="/en/06-contact.html" style="color: #ffffff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem;">Contact the firm</a>
+        </div>
+    </header>
+
+    <!-- Boutons de contact (uniquement sous l'en-tête sur Mobile) -->
+    <div class="header-contact-buttons">
+        <a href="tel:+33613088624">Call</a>
+        <a href="https://wa.me/33613088624?text=Hello,%20I%20would%20like%20some%20information." class="whatsapp">WhatsApp</a>
+    </div>
+
+    <!-- Contenu principal de la page d'accueil (Traduit) -->
+    <section class="hero-section">
+        <h1>All your administrative procedures for <span>vehicles and boats</span>, France and Monaco.</h1>
+        <p class="subtitle">ANTS vehicle registration, Monaco circulation titles (STC), maritime registrations and flags. Plate fitting at your home: a single point of contact, from the first discussion to the delivery of your title.</p>
+    </section>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Vehicle Registration in France</h3>
+            <p>Complete handling of ANTS procedures: registration certificates, imports, change of owner or address.</p>
+            <a href="/en/02-ants-france.html">Learn more &rarr;</a>
+        </div>
+        <div class="service-card">
+            <h3>Vehicle Procedures in Monaco</h3>
+            <p>Dedicated support with the Service des Titres de Circulation of the Principality.</p>
+            <a href="/en/03-stc-monaco.html">Learn more &rarr;</a>
+        </div>
+        <div class="service-card">
+            <h3>Boat Registration in France</h3>
+            <p>Registration, change of ownership, deregistration and tax formalities for vessels.</p>
+            <a href="/en/04-maritime-france.html">Learn more &rarr;</a>
+        </div>
+        <div class="service-card">
+            <h3>Boat Registration in Monaco</h3>
+            <p>Registration under the Monegasque flag with the Direction des Affaires Maritimes.</p>
+            <a href="/en/05-maritime-monaco.html">Learn more &rarr;</a>
+        </div>
+    </div>
+
+</body>
+</html>
