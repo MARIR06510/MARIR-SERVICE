@@ -264,9 +264,11 @@
           <input type="number" id="cv" min="1" max="100" value="6" inputmode="numeric">
           <div id="agebox"><label class="l" for="age">Âge du véhicule</label>
           <select id="age"><option value="n">Moins de 10 ans</option><option value="o">10 ans et plus (réduction de 50 % de la taxe régionale)</option></select></div>
+          <div id="datebox" class="hide"><label class="l" for="dmc">Date de première mise en circulation — case B du certificat étranger</label>
+          <input type="date" id="dmc" style="width:100%;padding:11px 12px;border:1px solid var(--line-soft);border-radius:3px;font:inherit;font-size:.92rem;color:var(--text);background:#fff"></div>
           <div id="co2box"><label class="l" for="co2">Émissions de CO₂ (g/km, cycle WLTP) — case V.7</label>
           <input type="number" id="co2" min="0" max="400" value="0" inputmode="numeric">
-          <p class="sim-note">Le malus s'applique aux voitures particulières thermiques ou hybrides lors de la première immatriculation en France. Laissez 0 si le véhicule est électrique.</p></div>
+          <p class="sim-note" id="co2note">Le malus s'applique aux voitures particulières thermiques ou hybrides lors de la première immatriculation en France.</p></div>
         </div>
         <div id="cnt" class="hide"><label class="l">Nombre de changements déjà enregistrés sur ce certificat</label>
           <div class="seg"><label><input type="radio" name="cnt" value="0" checked> Moins de 3</label><label><input type="radio" name="cnt" value="1"> 3 ou plus</label></div></div>
@@ -279,7 +281,7 @@
         <div class="acts"><button type="button" onclick="copyDetail(this)">Copier le détail</button><button type="button" onclick="window.print()">Imprimer</button><a class="pri" href="06-contact.html">Nous contacter</a></div>
       </aside>
     </div>
-    <p class="sim-note">Les tarifs régionaux sont votés chaque année et peuvent évoluer en cours d'année. Certaines régions modulent l'exonération des véhicules électriques ou accordent une réduction aux véhicules hybrides. Le malus au poids (à partir de 1 500 kg), les abattements pour familles nombreuses ou personnes handicapées et les cas particuliers ne sont pas pris en compte : nous les vérifions avec vous avant le dépôt.</p>
+    <p class="sim-note">Les tarifs régionaux sont votés chaque année et peuvent évoluer en cours d'année. Certaines régions modulent l'exonération des véhicules électriques ou accordent une réduction aux véhicules hybrides. Pour un véhicule d'occasion importé, le malus CO₂ est calculé selon le barème de l'année de première immatriculation à l'étranger, diminué d'une décote selon l'âge du véhicule (calcul vérifié sur l'exemple du simulateur officiel). Le malus au poids (à partir de 1 500 kg), les abattements pour familles nombreuses ou personnes handicapées et les cas particuliers ne sont pas pris en compte : nous les vérifions avec vous avant le dépôt.</p>
     <div class="cta"><p><strong>Un doute sur votre situation ?</strong> Décrivez-nous votre dossier : nous vérifions les pièces et le montant exact avant tout dépôt.</p><a href="06-contact.html">Nous contacter</a></div>
     <div class="xlinks" style="margin:22px 0 40px"><a href="02-ants-france.html">← ANTS — Véhicules France</a><a href="simulateur-stc.html">Simulateur STC — véhicule Monaco →</a></div>
   </div>
@@ -303,21 +305,47 @@ const REG=[["Provence-Alpes-Côte d'Azur", 60], ["Auvergne-Rhône-Alpes", 43], [
 const $=id=>document.getElementById(id);
 $('reg').innerHTML=REG.map((r,i)=>'<option value="'+r[1]+'">'+r[0]+' — '+r[1].toLocaleString('fr-FR',{minimumFractionDigits:2})+' € / CV</option>').join('');
 function malusCO2(g){if(g<108)return 0;if(g>191)return 80000;return MALUS[g]||0}
+const SEQ=[];for(let g=108;g<=191;g++)SEQ.push(MALUS[g]);
+const THR={2020:138,2021:133,2022:128,2023:123,2024:118,2025:113,2026:108};
+const DEC=[[3,3],[6,6],[9,9],[12,12],[18,16],[24,20],[36,28],[48,33],[60,38],[72,43],[84,48],[96,53],[108,58],[120,64],[132,70],[144,76],[156,82],[168,88],[180,94]];
+function decote(m){if(m<=0)return 0;for(const [a,b] of DEC)if(m<=a)return b;return 100}
+function monthsBetween(d1,d2){let m=(d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth());if(d2.getDate()<d1.getDate())m--;return Math.max(0,m)}
+(function(){const t=new Date();t.setFullYear(t.getFullYear()-3);$('dmc').value=t.toISOString().slice(0,10)})();
+// retourne {val, rate, months, note} ; val=null si non calculable
+function malusImport(g,dt,ene){
+  const now=new Date(),months=monthsBetween(dt,now),rate=decote(months),y=dt.getFullYear();
+  if(ene==='EL')return {val:0,months,rate,note:'exonéré (électrique / hydrogène)'};
+  if(dt<new Date(2015,0,1))return {val:0,months,rate,note:'1re immatriculation avant 2015 : pas de malus'};
+  if(dt<new Date(2020,2,1)||y>2026)return {val:null,months,rate,note:'à confirmer avec nous (barème antérieur à mars 2020)'};
+  const idx=g-THR[y];
+  if(idx<0)return {val:0,months,rate,note:'sous le seuil de '+THR[y]+' g/km de '+y};
+  if(idx>45)return {val:null,months,rate,note:'montant élevé : calcul précis avec nous'};
+  const base=SEQ[idx];const val=Math.round(base*(100-rate))/100;
+  return {val,base,months,rate,y,note:'barème '+y+' : '+fmt(base)+', décote '+rate+' % ('+months+' mois)'};
+}
 function calc(){
   const d=$('dem').value,rate=parseFloat($('reg').value),gen=$('gen').value,ene=$('ene').value;
   const cv=Math.max(1,parseInt($('cv').value)||1),old=$('age').value==='o',co2=parseInt($('co2').value)||0;
   const veh=['neuf','import','occ'].includes(d);
   $('vehbox').classList.toggle('hide',!veh);
   $('cnt').classList.toggle('hide',!(d==='adr'||d==='civ'));
-  $('agebox').classList.toggle('hide',d==='neuf');
-  $('co2box').classList.toggle('hide',!(d==='neuf'&&gen==='VP'&&ene!=='EL'));
+  $('agebox').classList.toggle('hide',d==='neuf'||d==='import');
+  $('datebox').classList.toggle('hide',d!=='import');
+  const dt=new Date($('dmc').value||Date.now());const impM=monthsBetween(dt,new Date());
+  $('co2box').classList.toggle('hide',!((d==='neuf'||d==='import')&&gen==='VP'&&ene!=='EL'));
   const rows=[];let t=0;
   if(veh){
-    let y1=ene==='EL'?0:cv*rate; if(old&&d!=='neuf')y1=y1/2;
-    rows.push(['Y.1 — Taxe régionale ('+cv+' CV'+(ene==='EL'?', exonéré':'')+(old&&d!=='neuf'&&ene!=='EL'?', −50 %':'')+')',fmt(y1)]);t+=y1;
+    const old2=d==='import'?impM>=120:old;let y1=ene==='EL'?0:cv*rate; if(old2&&d!=='neuf')y1=y1/2;
+    rows.push(['Y.1 — Taxe régionale ('+cv+' CV'+(ene==='EL'?', exonéré':'')+(old2&&d!=='neuf'&&ene!=='EL'?', −50 %':'')+')',fmt(y1)]);t+=y1;
     if(gen==='CTTE'){rows.push(['Y.2 — Taxe formation professionnelle (utilitaire)',fmt(34)]);t+=34}
     if(d==='neuf'&&gen==='VP'&&ene!=='EL'){const m=malusCO2(co2);rows.push(['Y.3 — Malus CO₂ ('+co2+' g/km)',fmt(m)]);t+=m}
-    if(d==='import'&&gen==='VP')rows.push(['Y.3 — Malus éventuel (véhicule importé)','à confirmer',1]);
+    if(d==='import'&&gen==='VP'){
+      const r=malusImport(co2,dt,ene);
+      if(r.val===null)rows.push(['Y.3 — Malus CO₂ (véhicule importé)','à confirmer',1]);
+      else{rows.push(['Y.3 — Malus CO₂ ('+(ene==='EL'?'exonéré':co2+' g/km')+')',fmt(r.val)]);t+=r.val}
+      rows.push([r.note,'',1]);
+      if(dt>=new Date(2022,0,1)&&ene!=='EL')rows.push(['Taxe au poids (masse en ordre de marche supérieure à 1 500 kg)','à confirmer',1]);
+    }
     rows.push(['Y.4 — Taxe fixe de gestion',fmt(11)]);t+=11;
     rows.push(['Y.5 — Redevance d\'acheminement',fmt(2.76)]);t+=2.76;
   }else if(d==='dup'){
