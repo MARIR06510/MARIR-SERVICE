@@ -259,17 +259,20 @@
           <label class="l" for="gen">Genre du véhicule</label>
           <select id="gen"><option value="VP">Voiture particulière (VP)</option><option value="CTTE">Utilitaire / camionnette (CTTE)</option><option value="MOTO">Moto / scooter / tricycle</option></select>
           <label class="l" for="ene">Énergie</label>
-          <select id="ene"><option value="TH">Essence / diesel</option><option value="HY">Hybride / GPL / superéthanol</option><option value="EL">100 % électrique ou hydrogène</option></select>
+          <select id="ene"><option value="TH">Essence / diesel / GPL / gaz</option><option value="PHEV">Hybride rechargeable (autonomie électrique supérieure à 50 km)</option><option value="HY">Hybride non rechargeable</option><option value="E85">Superéthanol E85</option><option value="EL">100 % électrique ou hydrogène</option></select>
           <label class="l" for="cv">Puissance fiscale (CV) — case P.6 du certificat</label>
           <input type="number" id="cv" min="1" max="100" value="6" inputmode="numeric">
           <div id="agebox"><label class="l" for="age">Âge du véhicule</label>
           <select id="age"><option value="n">Moins de 10 ans</option><option value="o">10 ans et plus (réduction de 50 % de la taxe régionale)</option></select></div>
           <div id="datebox" class="hide"><label class="l" for="dmc">Date de première mise en circulation — case B du certificat étranger</label>
           <input type="date" id="dmc" style="width:100%;padding:11px 12px;border:1px solid var(--line-soft);border-radius:3px;font:inherit;font-size:.92rem;color:var(--text);background:#fff"></div>
-          <div id="co2box"><label class="l" for="co2">Émissions de CO₂ (g/km, cycle WLTP) — case V.7</label>
+          <div id="co2box"><label class="l" for="co2">Émissions de CO₂ (g/km) — case V.7</label>
           <input type="number" id="co2" min="0" max="400" value="0" inputmode="numeric">
           <label class="l" for="mass">Masse en ordre de marche (kg) — case G du certificat</label>
           <input type="number" id="mass" min="0" max="5000" value="0" inputmode="numeric">
+          <label class="l" for="enf">Enfants à charge (famille d'au moins 3 enfants : abattement par enfant, obtenu par remboursement)</label>
+          <input type="number" id="enf" min="0" max="10" value="0" inputmode="numeric">
+          <label class="l" style="display:flex;gap:8px;align-items:center;font-weight:400"><input type="checkbox" id="cmi"> Titulaire d'une carte mobilité inclusion « invalidité » ou véhicule accessible en fauteuil roulant</label>
           <p class="sim-note" id="co2note">Le malus CO₂ et la taxe au poids s'appliquent aux voitures particulières lors de la première immatriculation en France. Laissez la masse à 0 si elle est inférieure au seuil.</p></div>
         </div>
         <div id="cnt" class="hide"><label class="l">Nombre de changements déjà enregistrés sur ce certificat</label>
@@ -283,7 +286,7 @@
         <div class="acts"><button type="button" onclick="copyDetail(this)">Copier le détail</button><button type="button" onclick="window.print()">Imprimer</button><a class="pri" href="06-contact.html">Nous contacter</a></div>
       </aside>
     </div>
-    <p class="sim-note">Les tarifs régionaux sont votés chaque année et peuvent évoluer en cours d'année. Certaines régions modulent l'exonération des véhicules électriques ou accordent une réduction aux véhicules hybrides. Pour un véhicule d'occasion importé, le malus CO₂ est calculé selon le barème de l'année de première immatriculation à l'étranger, diminué d'une décote selon l'âge du véhicule (calcul vérifié sur un exemple du simulateur officiel). La taxe au poids est calculée sans abattement (familles nombreuses, personnes handicapées, hybrides rechargeables) ; ces cas et les véhicules mis en circulation avant mars 2020 sont vérifiés avec vous avant le dépôt.</p>
+    <p class="sim-note">Les tarifs régionaux sont votés chaque année et peuvent évoluer en cours d'année. Certaines régions modulent l'exonération des véhicules électriques ou accordent une réduction aux véhicules hybrides. Pour un véhicule d'occasion importé, le malus CO₂ est calculé selon le barème de l'année de première immatriculation à l'étranger, diminué d'une décote selon l'âge du véhicule (calcul vérifié sur un exemple du simulateur officiel). Les abattements (hybrides, superéthanol, familles nombreuses, handicap) suivent la doctrine fiscale officielle (BOFiP). Les véhicules mis en circulation en 2015 ou 2016 ne sont pas calculés ici : nous les vérifions avec vous avant le dépôt.</p>
     <div class="cta"><p><strong>Un doute sur votre situation ?</strong> Décrivez-nous votre dossier : nous vérifions les pièces et le montant exact avant tout dépôt.</p><a href="06-contact.html">Nous contacter</a></div>
     <div class="xlinks" style="margin:22px 0 40px"><a href="02-ants-france.html">← ANTS — Véhicules France</a><a href="simulateur-stc.html">Simulateur STC — véhicule Monaco →</a></div>
   </div>
@@ -309,9 +312,10 @@ $('reg').innerHTML=REG.map((r,i)=>'<option value="'+r[1]+'">'+r[0]+' — '+r[1].
 function malusCO2(g){if(g<108)return 0;if(g>191)return 80000;return MALUS[g]||0}
 const D=[];for(let g=108;g<=191;g++)D.push(MALUS[g]);
 const B=[50, 75, 100, 125, 150, 170, 190, 210, 230, 240, 260, 280, 310, 330, 360, 400, 450, 540, 650, 740, 818, 898, 983, 1074, 1172, 1276, 1386, 1504, 1629, 1761, 1901, 2049, 2205, 2370, 2544, 2726, 2918, 3119, 3331, 3552, 3784, 4026, 4279, 4543, 4818, 5105, 5404, 5715, 6039, 6375, 6724, 7086, 7462, 7851, 8254, 8671, 9103, 9550, 10011, 10488, 10980, 11488, 12012, 12552, 13109, 13682, 14273, 14881, 15506, 16149, 16810, 17490, 18188, 18905, 19641, 20396, 21171, 21966, 22781, 23616, 24472, 25349, 26247, 27166, 28107, 29070, 30056, 31063, 32094, 33147, 34224, 35324, 36447, 37595, 38767, 39964, 41185, 42431, 43703, 45000, 46323, 47672, 49047];
+const S18=[50,53,60,73,90,113,140,173,210,253,300,353,410,473,540,613,690,773,860,953,1050,1153,1260,1373,1490,1613,1740,1873,2010,2153,2300,2453,2610,2773,2940,3113,3290,3473,3660,3853,4050,4253,4460,4673,4890,5113,5340,5573,5810,6053,6300,6553,6810,7073,7340,7613,7890,8173,8460,8753,9050,9353,9660,9973,10290], S19=[35,40,45,50,55,60,65,70,75,80,85,90,113,140,173,210,253,300,353,410,473,540,613,690,773,860,953,1050,1101,1153,1260,1373,1490,1613,1740,1873,2010,2153,2300,2453,2610,2773,2940,3113,3290,3473,3660,3756,3853,4050,4253,4460,4673,4890,5113,5340,5573,5810,6053,6300,6553,6810,7073,7340,7613,7890,8173,8460,8753,9050,9353,9660,9973,10290];
 const DEC=[[3,3],[6,6],[9,9],[12,12],[18,16],[24,20],[36,28],[48,33],[60,38],[72,43],[84,48],[96,53],[108,58],[120,64],[132,70],[144,76],[156,82],[168,88],[180,94]];
 function decote(m){if(m<=0)return 0;for(const [a,b] of DEC)if(m<=a)return b;return 100}
-function monthsBetween(d1,d2){let m=(d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth());if(d2.getDate()<d1.getDate())m--;return Math.max(0,m)}
+function monthsBetween(d1,d2){let m=(d2.getFullYear()-d1.getFullYear())*12+(d2.getMonth()-d1.getMonth());if(d2.getDate()>d1.getDate())m++;return Math.max(0,m)}
 (function(){const t=new Date();t.setFullYear(t.getFullYear()-3);$('dmc').value=t.toISOString().slice(0,10)})();
 const T25=[[1600,1799,10],[1800,1899,15],[1900,1999,20],[2000,2099,25],[2100,1e9,30]];
 const T26=[[1500,1699,10],[1700,1799,15],[1800,1899,20],[1900,1999,25],[2000,1e9,30]];
@@ -320,40 +324,59 @@ function tranches(T,m){let s=0;for(const [lo,hi,r] of T){if(m>=lo)s+=(Math.min(m
 function grille(dt){
   const t=dt.getTime(),at=(y,m,d)=>new Date(y,m,d).getTime();
   if(t<at(2015,0,1))return {exo:true,txt:'1re immatriculation avant 2015 : pas de malus'};
-  if(t<at(2020,2,1))return {unk:true};
+  if(t<at(2017,0,1))return {unk:true};
+  if(t<at(2018,0,1))return {y:2017,fam:'S18',thr:127,cap:10000,nedc:1};
+  if(t<at(2019,0,1))return {y:2018,fam:'S18',thr:120,cap:10500,nedc:1};
+  if(t<at(2020,0,1))return {y:2019,fam:'S19',thr:117,cap:10500,nedc:1};
+  if(t<at(2020,2,1))return {y:2020,fam:'B',thr:110,cap:20000,capg:185,nedc:1,indic:1};
   if(t<at(2021,0,1))return {y:2020,fam:'B',thr:138,cap:20000};
   if(t<at(2022,0,1))return {y:2021,fam:'B',thr:133,cap:30000};
   if(t<at(2023,0,1))return {y:2022,fam:'B',thr:128,cap:40000,w:m=>m>=1800?(m-1800+1)*10:0};
   if(t<at(2024,0,1))return {y:2023,fam:'B',thr:123,cap:50000,w:m=>m>=1800?(m-1800+1)*10:0};
-  if(t<at(2025,2,1))return {y:2024,fam:'D',thr:118,cap:60000,capg:194,w:m=>m>=1600?(m-1600+1)*10:0};
+  if(t<at(2025,2,1))return {y:2024,fam:'D',thr:118,cap:60000,capg:194,w:m=>tranches(T25,m)};
   if(t<at(2026,0,1))return {y:2025,fam:'D',thr:113,cap:70000,w:m=>tranches(T25,m)};
   return {y:2026,fam:'D',thr:108,cap:80000,w:m=>tranches(T26,m)};
 }
 function co2Base(G,g){
   if(g<G.thr)return 0;
   if(G.capg&&g>=G.capg)return G.cap;
-  const idx=g-G.thr,arr=G.fam==='B'?B:D;
+  const idx=g-G.thr,arr=G.fam==='B'?B:G.fam==='S18'?S18:G.fam==='S19'?S19:D;
   if(idx>=arr.length)return G.cap;
   return Math.min(arr[idx],G.cap);
 }
 // calcul du malus (CO2 + poids) ; retourne lignes et total
-function malusCalc(g,mass,dt,ene,neuf){
-  const rows=[];let tot=0;
+function malusCalc(g,mass,dt,ene,neuf,opt){
+  const rows=[];let tot=0;opt=opt||{enf:0,cmi:false};
   if(ene==='EL'){rows.push(['Y.3 — Malus CO₂ et taxe au poids','exonéré (électrique / hydrogène)',1]);return {rows,tot:0}}
+  if(opt.cmi){rows.push(['Y.3 — Malus CO₂ et taxe au poids','exonéré (carte mobilité inclusion « invalidité » ou véhicule accessible en fauteuil roulant)',1]);return {rows,tot:0}}
   const G=neuf?grille(new Date(2026,5,1)):grille(dt);
   if(G.exo){rows.push(['Y.3 — Malus CO₂ et taxe au poids',fmt(0)]);rows.push([G.txt,'',1]);return {rows,tot:0}}
-  if(G.unk){rows.push(['Y.3 — Malus CO₂ (1re immatriculation avant mars 2020)','à confirmer',1]);return {rows,tot:0}}
+  if(G.unk){rows.push(['Y.3 — Malus CO₂ (1re immatriculation en 2015 ou 2016)','à confirmer',1]);return {rows,tot:0}}
   const months=neuf?0:monthsBetween(dt,new Date()),rate=neuf?0:decote(months);
-  let c=co2Base(G,g),w=0,wUnknown=false;
-  if(G.w){ if(ene==='HY')wUnknown=true; else w=G.w(mass) }
-  if(c+w>G.cap){const k=G.cap/(c+w);c*=k;w*=k}
+  let gg=g;
+  if(ene==='E85'&&g<=250)gg=g*0.6;
+  gg=Math.max(0,Math.round(gg-20*opt.enf));
+  let c=co2Base(G,gg),w=0;
+  const notes=[];
+  if(opt.enf>0)notes.push('Enfants à charge : −'+20*opt.enf+' g/km et −'+200*opt.enf+' kg (abattement obtenu par remboursement)');
+  if(ene==='E85'&&g<=250)notes.push('Superéthanol E85 : abattement de 40 % sur les émissions de CO₂');
+  if(G.w){
+    let m=mass-200*opt.enf,exo=false;
+    if(ene==='PHEV'){if(G.y<=2024)exo=true;else m-=Math.min(200,Math.round(mass*0.15))}
+    else if(ene==='HY')m-=100;
+    if(exo)notes.push('Hybride rechargeable (plus de 50 km en mode électrique) : exonéré de taxe au poids jusqu\'en 2024');
+    else w=G.w(Math.max(0,m));
+    if(ene==='PHEV'&&!exo)notes.push('Hybride rechargeable : abattement de 200 kg (plafonné à 15 % de la masse)');
+    if(ene==='HY')notes.push('Hybride non rechargeable : abattement de 100 kg');
+    w=Math.min(w,Math.max(0,G.cap-c));
+  }
   const cd=Math.round(c*(100-rate))/100,wd=Math.round(w*(100-rate))/100;
   rows.push(['Y.3 — Malus CO₂ ('+g+' g/km)',fmt(cd)]);tot+=cd;
-  if(G.w){
-    if(wUnknown)rows.push(['Taxe au poids (hybride : abattement selon le type de motorisation)','à confirmer',1]);
-    else{rows.push(['Taxe au poids ('+mass+' kg)',fmt(wd)]);tot+=wd}
-  }
-  if(!neuf)rows.push(['barème '+G.y+(rate?' · décote '+rate+' % ('+months+' mois)':''),'',1]);
+  if(G.w){rows.push(['Taxe au poids ('+mass+' kg)',fmt(wd)]);tot+=wd}
+  else if(G.y<2022&&!neuf)rows.push(['Taxe au poids : non applicable (1re immatriculation avant 2022)','',1]);
+  if(!neuf)rows.push(['Barème '+G.y+(G.nedc?' (cycle NEDC)':'')+(rate?' · décote '+rate+' % ('+months+' mois)':''),'',1]);
+  notes.forEach(n=>rows.push([n,'',1]));
+  if(G.indic)rows.push(['Barème de janvier–février 2020 : valeur indicative, à confirmer avec nous','',1]);
   return {rows,tot};
 }
 function calc(){
@@ -373,7 +396,7 @@ function calc(){
     if(gen==='CTTE'){rows.push(['Y.2 — Taxe formation professionnelle (utilitaire)',fmt(34)]);t+=34}
     if((d==='neuf'||d==='import')&&gen==='VP'){
       const mass=parseInt($('mass').value)||0;
-      const r=malusCalc(co2,mass,dt,ene,d==='neuf');
+      const r=malusCalc(co2,mass,dt,ene,d==='neuf',{enf:Math.max(0,parseInt($('enf').value)||0),cmi:$('cmi').checked});
       r.rows.forEach(x=>rows.push(x));t+=r.tot;
     }
     rows.push(['Y.4 — Taxe fixe de gestion',fmt(11)]);t+=11;
@@ -387,7 +410,7 @@ function calc(){
   }
   render(rows,t);
 }
-['dem','reg','gen','ene','cv','age','co2','dmc','mass'].forEach(i=>$(i).addEventListener('input',calc));
+['dem','reg','gen','ene','cv','age','co2','dmc','mass','enf','cmi'].forEach(i=>$(i).addEventListener('input',calc));
 document.querySelectorAll('input[name=cnt]').forEach(r=>r.addEventListener('change',calc));
 calc();
 </script>
