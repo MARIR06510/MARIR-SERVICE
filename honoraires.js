@@ -42,12 +42,11 @@ window.HONORAIRES = {
   "ants-situation-titulaire": "49 €",
   "ants-situation-vehicule": "49 €",
   /* Maritime France */
-  "mf-domiciliation": "À partir de 119 €",
   "mf-licence-radio": "À partir de 119 €",
   "mf-mutation": "À partir de 119 €",
   "mf-neuf": "À partir de 119 €",
-  "mf-occasion": "À partir de 119 €",
-  "mf-quitus-fiscal": "À partir de 119 €",
+  "mf-occasion": "Sur devis",
+  "mf-quitus-fiscal": "Sur devis",
   "mf-remotorisation": "À partir de 119 €",
   /* Maritime Monaco */
   "mm-duplicata": "À partir de 119 €",
@@ -55,7 +54,7 @@ window.HONORAIRES = {
   "mm-neuf": "À partir de 119 €",
   "mm-occasion": "À partir de 119 €",
   "mm-permis": "À partir de 119 €",
-  "mm-securite": "À partir de 119 €",
+  "mm-securite": "",
   "mm-vente": "À partir de 119 €",
   /* STC — Véhicules Monaco */
   "stc-dispositions": "",
