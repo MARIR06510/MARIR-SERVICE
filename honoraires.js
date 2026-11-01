@@ -6,30 +6,41 @@
    - Ne touchez pas aux noms à gauche (ils correspondent aux pages).
    - Après modification, envoyez uniquement ce fichier sur GitHub.
    ============================================================ */
-window.HONORAIRES_NOTE = ""; /* Phrase optionnelle sous chaque prix, ex. : "Hors droits et taxes de l'administration." */
+window.HONORAIRES_NOTE = "Hors droits et taxes de l'administration."; /* Phrase optionnelle sous chaque prix, ex. : "Hors droits et taxes de l'administration." */
+window.HONORAIRES_NOTES = {
+  "stc-pose-plaque": "Hors coût des plaques.",
+  "ants-pose-plaque": "Hors coût des plaques.",
+  "ants-import-ue": "Quitus fiscal compris. Hors droits et taxes de l'administration.",
+  "ants-import-hors-ue": "Conformité DREAL comprise. Hors droits et taxes de l'administration.",
+  "ants-collection": "Dossier FFVE (attestation de véhicule de collection) compris. Hors droits et taxes de l'administration.",
+  "ants-coc": "Hors prix du certificat de conformité.",
+  "ants-permis": "En cas de perte : timbre fiscal de 25 € en sus. Hors droits et taxes de l'administration."
+};
 window.HONORAIRES = {
   /* ANTS — Véhicules France */
-  "ants-changement-adresse": "",
-  "ants-changement-titulaire": "",
-  "ants-coc": "",
-  "ants-collection": "",
-  "ants-csa-fiv": "",
-  "ants-diplomatiques": "",
-  "ants-duplicata": "",
-  "ants-import-hors-ue": "",
-  "ants-import-ue": "",
-  "ants-levee-gage": "",
-  "ants-mandat": "",
-  "ants-modification-technique": "",
-  "ants-neuf": "",
-  "ants-non-gage": "",
-  "ants-occasion": "",
-  "ants-permis": "",
-  "ants-pose-plaque": "",
-  "ants-professionnels": "",
-  "ants-rectification": "",
-  "ants-situation-titulaire": "",
-  "ants-situation-vehicule": "",
+  "ants-changement-adresse": "29 €",
+  "ants-changement-titulaire": "49 €",
+  "ants-coc": "79 €",
+  "ants-collection": "169 €",
+  "ants-csa-fiv": "49 €",
+  "ants-diplomatiques": "49 €",
+  "ants-duplicata": "39 €",
+  "ants-import-hors-ue": "169 €",
+  "ants-import-ue": "149 €",
+  "ants-levee-gage": "19 €",
+  "ants-modification-technique": "49 €",
+  "ants-neuf": "49 €",
+  "ants-non-gage": "19 €",
+  "ants-occasion": "49 €",
+  "ants-permis": "65 €",
+  "ants-pose-plaque": "49 €",
+  "ants-provenance-monaco": "99 €",
+  "ants-quitus-fiscal": "49 €",
+  "ants-ww-particuliers": "119 €",
+  "ants-professionnels": "Sur demande",
+  "ants-rectification": "49 €",
+  "ants-situation-titulaire": "49 €",
+  "ants-situation-vehicule": "49 €",
   /* Maritime France */
   "mf-domiciliation": "",
   "mf-licence-radio": "",
@@ -49,29 +60,29 @@ window.HONORAIRES = {
   "mm-vente": "",
   /* STC — Véhicules Monaco */
   "stc-dispositions": "",
-  "stc-estampille": "",
-  "stc-gage": "",
-  "stc-grande-remise": "",
-  "stc-immatriculation-provisoire": "",
-  "stc-location": "",
-  "stc-modification-vehicule": "",
-  "stc-moto-a-la-demande": "",
-  "stc-neuf": "",
-  "stc-occasion": "",
-  "stc-permis-echange": "",
-  "stc-permis-examen": "",
-  "stc-permis-international": "",
-  "stc-permis-perte-vol": "",
-  "stc-permis-renouvellement": "",
-  "stc-perte-vol": "",
-  "stc-pose-plaque": "",
-  "stc-professionnels-automobile": "",
-  "stc-remorque": "",
-  "stc-remplacement": "",
-  "stc-series-speciales": "",
-  "stc-sortie-fichier": "",
-  "stc-taxi": "",
-  "stc-transport-sanitaire": ""
+  "stc-estampille": "À partir de 99 €",
+  "stc-gage": "À partir de 99 €",
+  "stc-grande-remise": "Sur devis",
+  "stc-immatriculation-provisoire": "À partir de 99 €",
+  "stc-location": "À partir de 99 €",
+  "stc-modification-vehicule": "À partir de 99 €",
+  "stc-moto-a-la-demande": "À partir de 99 €",
+  "stc-neuf": "À partir de 99 €",
+  "stc-occasion": "À partir de 99 €",
+  "stc-permis-echange": "À partir de 99 €",
+  "stc-permis-examen": "À partir de 99 €",
+  "stc-permis-international": "À partir de 99 €",
+  "stc-permis-perte-vol": "À partir de 99 €",
+  "stc-permis-renouvellement": "À partir de 99 €",
+  "stc-perte-vol": "À partir de 99 €",
+  "stc-pose-plaque": "49 €",
+  "stc-professionnels-automobile": "Sur demande",
+  "stc-remorque": "À partir de 99 €",
+  "stc-remplacement": "À partir de 99 €",
+  "stc-series-speciales": "Sur devis",
+  "stc-sortie-fichier": "À partir de 99 €",
+  "stc-taxi": "Sur devis",
+  "stc-transport-sanitaire": "Sur devis"
 };
 (function () {
   var H = window.HONORAIRES || {};
@@ -82,7 +93,10 @@ window.HONORAIRES = {
       if (typeof v === 'string' && v.replace(/\s/g, '') !== '') {
         els[i].querySelector('.hon-val').textContent = v;
         var n = els[i].querySelector('.hon-note');
-        if (n && window.HONORAIRES_NOTE) n.textContent = window.HONORAIRES_NOTE;
+        var key = els[i].getAttribute('data-honoraires');
+        var N = window.HONORAIRES_NOTES || {};
+        if (n && N[key]) n.textContent = N[key];
+        else if (n && window.HONORAIRES_NOTE) n.textContent = window.HONORAIRES_NOTE;
         els[i].hidden = false;
       }
     }
