@@ -51,7 +51,6 @@ window.HONORAIRES = {
   "mf-remotorisation": "",
   /* Maritime Monaco */
   "mm-duplicata": "",
-  "mm-heliport": "",
   "mm-licence-radio": "",
   "mm-neuf": "",
   "mm-occasion": "",
