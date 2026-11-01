@@ -44,6 +44,8 @@ window.HONORAIRES = {
   /* Maritime France */
   "mf-licence-radio": "À partir de 119 €",
   "mf-mutation": "À partir de 119 €",
+  "mf-vente": "À partir de 119 €",
+  "mf-duplicata": "À partir de 119 €",
   "mf-neuf": "À partir de 119 €",
   "mf-occasion": "Sur devis",
   "mf-quitus-fiscal": "Sur devis",
@@ -51,6 +53,7 @@ window.HONORAIRES = {
   /* Maritime Monaco */
   "mm-duplicata": "À partir de 119 €",
   "mm-licence-radio": "À partir de 119 €",
+  "mm-modification": "Sur devis",
   "mm-neuf": "À partir de 119 €",
   "mm-occasion": "À partir de 119 €",
   "mm-permis": "À partir de 119 €",
