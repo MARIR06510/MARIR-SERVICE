@@ -1,0 +1,99 @@
+/* Marir Service Admin — fees (English version). */
+window.HONORAIRES_NOTE = "Excluding administrative duties and taxes."; /* Phrase optionnelle sous chaque prix, ex. : "Excluding administrative duties and taxes." */
+window.HONORAIRES_NOTES = {
+  "stc-pose-plaque": "Excluding the cost of the plates.",
+  "ants-pose-plaque": "Excluding the cost of the plates.",
+  "ants-import-ue": "Tax clearance (quitus fiscal) included. Excluding administrative duties and taxes.",
+  "ants-import-hors-ue": "DREAL conformity included. Excluding administrative duties and taxes.",
+  "ants-collection": "FFVE file (classic/collector vehicle attestation) included. Excluding administrative duties and taxes.",
+  "ants-coc": "Excluding the price of the certificate of conformity.",
+  "ants-permis": "If lost: additional €25 tax stamp. Excluding administrative duties and taxes."
+};
+window.HONORAIRES = {
+  /* ANTS — Véhicules France */
+  "ants-changement-adresse": "€29",
+  "ants-changement-titulaire": "€49",
+  "ants-coc": "€79",
+  "ants-collection": "€169",
+  "ants-csa-fiv": "€49",
+  "ants-diplomatiques": "€49",
+  "ants-duplicata": "€39",
+  "ants-import-hors-ue": "€169",
+  "ants-import-ue": "€149",
+  "ants-levee-gage": "€19",
+  "ants-modification-technique": "€49",
+  "ants-neuf": "€49",
+  "ants-non-gage": "€19",
+  "ants-occasion": "€49",
+  "ants-permis": "€65",
+  "ants-pose-plaque": "€49",
+  "ants-provenance-monaco": "€99",
+  "ants-quitus-fiscal": "€49",
+  "ants-ww-particuliers": "€119",
+  "ants-professionnels": "On request",
+  "ants-rectification": "€49",
+  "ants-situation-titulaire": "€49",
+  "ants-situation-vehicule": "€49",
+  /* Maritime France */
+  "mf-licence-radio": "From €119",
+  "mf-mutation": "From €119",
+  "mf-vente": "From €119",
+  "mf-duplicata": "From €119",
+  "mf-neuf": "From €119",
+  "mf-occasion": "Quote on request",
+  "mf-quitus-fiscal": "Quote on request",
+  "mf-remotorisation": "From €119",
+  /* Maritime Monaco */
+  "mm-duplicata": "From €119",
+  "mm-licence-radio": "From €119",
+  "mm-modification": "Quote on request",
+  "mm-neuf": "From €119",
+  "mm-occasion": "From €119",
+  "mm-permis": "From €119",
+  "mm-securite": "",
+  "mm-vente": "From €119",
+  /* STC — Véhicules Monaco */
+  "stc-dispositions": "",
+  "stc-estampille": "From €99",
+  "stc-gage": "From €99",
+  "stc-grande-remise": "Quote on request",
+  "stc-immatriculation-provisoire": "From €99",
+  "stc-location": "From €99",
+  "stc-modification-vehicule": "From €99",
+  "stc-moto-a-la-demande": "From €99",
+  "stc-neuf": "From €99",
+  "stc-occasion": "From €99",
+  "stc-permis-echange": "From €99",
+  "stc-permis-examen": "From €99",
+  "stc-permis-international": "From €99",
+  "stc-permis-perte-vol": "From €99",
+  "stc-permis-renouvellement": "From €99",
+  "stc-perte-vol": "From €99",
+  "stc-pose-plaque": "€49",
+  "stc-professionnels-automobile": "On request",
+  "stc-remorque": "From €99",
+  "stc-remplacement": "From €99",
+  "stc-series-speciales": "Quote on request",
+  "stc-sortie-fichier": "From €99",
+  "stc-taxi": "Quote on request",
+  "stc-transport-sanitaire": "Quote on request"
+};
+(function () {
+  var H = window.HONORAIRES || {};
+  function run() {
+    var els = document.querySelectorAll('[data-honoraires]');
+    for (var i = 0; i < els.length; i++) {
+      var v = H[els[i].getAttribute('data-honoraires')];
+      if (typeof v === 'string' && v.replace(/\s/g, '') !== '') {
+        els[i].querySelector('.hon-val').textContent = v;
+        var n = els[i].querySelector('.hon-note');
+        var key = els[i].getAttribute('data-honoraires');
+        var N = window.HONORAIRES_NOTES || {};
+        if (n && N[key]) n.textContent = N[key];
+        else if (n && window.HONORAIRES_NOTE) n.textContent = window.HONORAIRES_NOTE;
+        els[i].hidden = false;
+      }
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
