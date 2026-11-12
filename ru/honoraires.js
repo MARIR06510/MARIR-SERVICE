@@ -63,6 +63,8 @@ window.HONORAIRES = {
   "stc-moto-a-la-demande": "от 199 €",
   "stc-neuf": "от 199 €",
   "stc-occasion": "от 199 €",
+  "douane-846a": "от 199 €",
+  "tva-attestation": "от 199 €",
   "stc-permis-echange": "от 199 €",
   "stc-permis-examen": "от 199 €",
   "stc-permis-international": "от 199 €",
