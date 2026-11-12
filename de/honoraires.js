@@ -63,6 +63,8 @@ window.HONORAIRES = {
   "stc-moto-a-la-demande": "Ab 199 €",
   "stc-neuf": "Ab 199 €",
   "stc-occasion": "Ab 199 €",
+  "douane-846a": "Ab 199 €",
+  "tva-attestation": "Ab 199 €",
   "stc-permis-echange": "Ab 199 €",
   "stc-permis-examen": "Ab 199 €",
   "stc-permis-international": "Ab 199 €",
