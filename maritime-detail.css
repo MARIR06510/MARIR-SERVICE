@@ -1,0 +1,62 @@
+/* Pages de démarche maritime : style haute couture (bleu + cuivre) */
+:root{--b:#1F4FA8;--b2:#2E66CC;--bt:#E7EEFA;--nuit:#0A1220;--nuit2:#0F1A2D;--pierre:#EEF1F4;--ink:#0B1A2E;--mut:#56647D;--ln:#D5DBE5;--cu:#C98F5E;--iv:#F3EDE2}
+body{background:var(--pierre)!important}
+/* hero */
+.page-hero.sub{position:relative;background:var(--nuit) url(images/monaco-yachts-port.jpg) 50% 75%/cover!important;border:0!important;border-bottom:2px solid var(--cu)!important;padding:76px 0 64px!important;color:var(--iv)}
+.page-hero.sub::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,18,32,.95) 0%,rgba(10,18,32,.82) 48%,rgba(10,18,32,.45) 100%)}
+.page-hero.sub .wrap{position:relative}
+.page-hero.sub h1{font-family:'Fraunces',serif!important;font-weight:300!important;font-size:clamp(2.1rem,4.4vw,3.5rem)!important;line-height:1.08!important;letter-spacing:-.02em;color:var(--iv)!important;max-width:18ch;margin:10px 0 18px!important}
+.page-hero.sub p{color:#D3DAE6!important;font-size:1.08rem;max-width:56ch}
+.page-hero.sub p.who{color:#EDC9A3!important;font-size:.92rem;border-left:3px solid var(--cu);padding-left:14px;margin-top:22px}
+.page-hero.sub p.who strong{color:var(--iv)}
+.crumbs{font-size:.82rem!important;color:#B9C3D4!important}
+.crumbs a{color:#EDC9A3!important;border-bottom-color:rgba(237,201,163,.4)!important}
+.crumbs span{color:#B9C3D4!important}.crumbs .sep{opacity:.6}
+/* sommaire */
+.jump{background:#fff!important;border:0!important;border-bottom:1px solid var(--ln)!important;position:sticky;top:0;z-index:20}
+.jump .wrap{display:flex;gap:10px;overflow-x:auto;padding-top:14px;padding-bottom:14px;scrollbar-width:none}
+.jump a{white-space:nowrap;border:1px solid var(--ln)!important;background:#fff!important;color:var(--ink)!important;border-radius:999px;padding:7px 16px;font-size:.84rem;text-decoration:none!important;transition:.2s}
+.jump a:hover{background:var(--b)!important;border-color:var(--b)!important;color:#fff!important}
+/* sections */
+main.wrap{max-width:960px}
+.blk{margin:0 0 56px!important}
+.blk>h2{font-family:'Fraunces',serif!important;font-weight:400!important;font-size:clamp(1.5rem,2.6vw,2rem)!important;color:var(--ink)!important;position:relative;padding:20px 0 0;margin:0 0 8px!important}
+.blk>h2::before{content:"";position:absolute;top:0;left:0;width:54px;height:3px;background:linear-gradient(90deg,var(--b) 0 50%,var(--cu) 50% 100%)}
+.blk>.sub{color:var(--mut)!important;max-width:62ch}
+/* provenances */
+details.prov{background:#fff!important;border:1px solid var(--ln)!important;border-left:4px solid var(--b)!important;border-radius:3px!important;margin-bottom:10px!important;transition:box-shadow .2s}
+details.prov:hover,details.prov[open]{box-shadow:0 10px 26px rgba(31,79,168,.12)}
+details.prov summary{color:var(--ink)!important;padding:18px 20px!important}
+details.prov summary .pl{background:var(--b)!important;color:#fff!important}
+details.prov summary::after{color:var(--b)!important}
+.doc-list li{color:#33415C!important}
+.doc-list li::before{color:var(--b)!important;border-color:var(--b)!important}
+/* encadrés */
+.note-card{background:var(--bt)!important;border:0!important;border-left:4px solid var(--b)!important;border-radius:3px!important;color:#1B2B47!important}
+.note-card strong{color:var(--b)}
+.note-card.why{background:var(--nuit2)!important;border-left-color:var(--cu)!important;color:#D3DAE6!important}
+.note-card.why strong{color:var(--iv)}
+/* formulaires PDF */
+.dl{background:#fff!important;border:1px solid var(--ln)!important;border-top:3px solid var(--b)!important;border-radius:3px!important;transition:.2s}
+.dl:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(31,79,168,.16)}
+.dl .ic{background:var(--b)!important;color:#fff!important}
+/* tableau */
+table.fees thead th{background:var(--nuit)!important;color:#EDC9A3!important}
+table.fees td.amt,table.fees td strong{color:var(--ink)}
+table.fees tbody tr:hover td{background:var(--bt)}
+/* déroulement */
+.steps .step{background:#fff!important;border:1px solid var(--ln)!important;border-top:3px solid var(--b)!important;border-radius:3px!important}
+.steps .step i{background:var(--b)!important;color:#fff!important;border:0!important;font-style:normal}
+/* précédent / suivant */
+.pager a{background:#fff!important;border:1px solid var(--ln)!important;border-left:4px solid var(--b)!important;border-radius:3px!important;color:var(--ink)!important;transition:.2s}
+.pager a:hover{box-shadow:0 12px 28px rgba(31,79,168,.15);transform:translateY(-2px)}
+.pager a small{color:var(--b)!important;font-weight:600}
+/* appel à l'action */
+.cta{background:linear-gradient(120deg,var(--nuit) 0%,var(--nuit2) 100%)!important;border:0!important;border-bottom:3px solid var(--cu)!important;border-radius:3px!important;color:#D3DAE6!important;padding:30px 32px!important}
+.cta p,.cta strong{color:var(--iv)!important}
+.cta a{background:var(--cu)!important;color:#0A1220!important;border-radius:2px!important;font-weight:600;transition:.2s}
+.cta a:hover{background:#E0A878!important}
+@media(max-width:700px){.page-hero.sub{padding:48px 0 40px!important}.page-hero.sub::before{background:rgba(10,18,32,.86)}.jump{top:0}}
+.steps .step i{display:grid!important;place-items:center;width:34px;height:34px;border-radius:50%;margin-bottom:12px;font:500 .95rem 'Public Sans',sans-serif!important}
+.note-card.why{margin-top:18px!important}
+.blk>h2+.note-card{margin-top:14px}
