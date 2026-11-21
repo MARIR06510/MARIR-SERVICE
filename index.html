@@ -483,7 +483,51 @@ section{padding:100px 0}
 .cx .call .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 @media(max-width:1000px){.cx .cat.wide .tx{width:auto;left:0}.cx .cat.wide::before{background:linear-gradient(180deg,rgba(10,18,32,.12) 15%,rgba(10,18,32,.93) 100%)}.cx .cats{grid-template-columns:1fr 1fr;grid-template-rows:auto}.cx .cat{min-height:260px}.cx .cat.big{grid-column:1/3;grid-row:auto;min-height:340px}.cx .cat.wide{grid-column:1/3}.cx .facts .wrap{grid-template-columns:1fr 1fr}.cx .fact:nth-child(3){border-left:0;padding-left:0}.cx .fact:nth-child(n+3){border-top:1px solid rgba(243,237,226,.12)}}
 @media(max-width:680px){.cx section{padding:68px 0}.cx .wrap{padding:0 20px}.cx .hero{min-height:640px;background-position:64% center}.cx .hero .wrap{padding-bottom:60px}.cx .cats{grid-template-columns:1fr}.cx .cat.big,.cx .cat.wide{grid-column:auto}.cx .cat,.cx .cat.big{min-height:250px}.cx .cat.big h3{font-size:1.7rem}.cx .steps{grid-template-columns:1fr;gap:34px;padding-top:0}.cx .steps::before,.cx .step::before,.cx .step::after{display:none}.cx .step{padding-left:0;border-top:1px solid var(--line);padding-top:20px}.cx .facts .wrap{grid-template-columns:1fr}.cx .fact{border-left:0;padding:18px 0;border-top:1px solid rgba(243,237,226,.12)}.cx .fact:first-child{border-top:0}.cx .call .wrap{display:block}.cx .call h2{margin-bottom:28px}.cx .plate span{padding:14px 20px;letter-spacing:.05em}}
-.cx{background:var(--pierre);color:var(--ink);font:400 1rem/1.6 var(--sans)}.cx a{color:inherit}.cx img{display:block;max-width:100%}.cx .c-hero,.cx section.hero{min-height:min(78vh,700px)}.cx .hero .wrap{padding-top:90px}.cx .hero h1{margin-top:0}.cx .btn{line-height:1.2}.cx .cat-fold{margin-top:0}.cat-fold{border:1px solid #C9D0DA;border-radius:2px;background:#fff;overflow:hidden}.cat-fold>summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;color:#9A7240}.cat-fold>summary::-webkit-details-marker{display:none}.cat-fold>summary::after{content:" ＋";float:right}.cat-fold[open]>summary::after{content:" −"}.cx h1,.cx h2,.cx h3{font-family:var(--serif)}.cx .hero h1{color:var(--ivoire)!important}.cx .hero p{color:#D8DEE8!important}.cx h2{color:var(--ink)}.cx .call h2{color:var(--ivoire)}.cx .step h3{color:var(--ink)}.cx .step p,.cx .lead{color:var(--mut)}.cx .cat h3{color:var(--ivoire)}.cx .cat p{color:#D3DAE6}.cx .fact b{color:var(--ivoire)}.cx .section-head{margin:0}.cx #methode{background:transparent}</style></head>
+.cx{background:var(--pierre);color:var(--ink);font:400 1rem/1.6 var(--sans)}.cx a{color:inherit}.cx img{display:block;max-width:100%}.cx .c-hero,.cx section.hero{min-height:min(78vh,700px)}.cx .hero .wrap{padding-top:90px}.cx .hero h1{margin-top:0}.cx .btn{line-height:1.2}.cx .cat-fold{margin-top:0}.cat-fold{border:1px solid #C9D0DA;border-radius:2px;background:#fff;overflow:hidden}.cat-fold>summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;color:#9A7240}.cat-fold>summary::-webkit-details-marker{display:none}.cat-fold>summary::after{content:" ＋";float:right}.cat-fold[open]>summary::after{content:" −"}.cx h1,.cx h2,.cx h3{font-family:var(--serif)}.cx .hero h1{color:var(--ivoire)!important}.cx .hero p{color:#D8DEE8!important}.cx h2{color:var(--ink)}.cx .call h2{color:var(--ivoire)}.cx .step h3{color:var(--ink)}.cx .step p,.cx .lead{color:var(--mut)}.cx .cat h3{color:var(--ivoire)}.cx .cat p{color:#D3DAE6}.cx .fact b{color:var(--ivoire)}.cx .section-head{margin:0}.cx #methode{background:transparent}
+
+/* montée en gamme accueil */
+.cx .hero h1{font-size:clamp(2.3rem,4.7vw,4rem)!important;max-width:17ch!important;line-height:1.06!important}
+.cx .hero p{font-size:1.12rem;max-width:44ch}
+.cx #prestations h2,.cx #methode h2{position:relative;padding-top:22px}
+.cx #prestations h2::before,.cx #methode h2::before{content:"";position:absolute;top:0;left:0;width:54px;height:3px;background:linear-gradient(90deg,#1F4FA8 0 50%,#C98F5E 50% 100%)}
+.cx .cat .go::after{content:"→";display:inline-block;margin-left:10px;transition:transform .3s}
+.cx .cat:hover .go::after{transform:translateX(7px)}
+.cx .cat.wide .tx{width:54%}
+.cx .cat .ic{transition:background .3s,border-color .3s}
+.cx .cat:hover .ic{background:#1F4FA8;border-color:#1F4FA8}
+.cx .steps{counter-reset:st}
+.cx .step{counter-increment:st}
+.cx .step::before{content:counter(st)!important;display:grid;place-items:center;top:-50px!important;width:32px!important;height:32px!important;background:#1F4FA8!important;border:0!important;color:#fff;font:500 .95rem var(--sans)}
+.cx .step::after{display:none!important}
+.cx .steps::before{top:-34px!important;top:-34px}
+.cx .steps{padding-top:56px!important}
+.cx .steps::before{top:22px!important}
+.cx .step::before{top:-48px!important}
+.cat-fold{border:0!important;background:transparent!important;overflow:visible!important}
+.cat-fold>summary{background:#fff;border:1px solid #D5DBE5;border-left:4px solid #1F4FA8;border-radius:3px;padding:20px 24px!important;color:#0B1A2E!important;font:400 1.15rem var(--serif)!important;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .2s}
+.cat-fold>summary:hover{box-shadow:0 10px 26px rgba(31,79,168,.14)}
+.cat-fold>summary::after{content:"+"!important;float:none!important;width:32px;height:32px;border-radius:50%;border:1px solid #1F4FA8;color:#1F4FA8;display:flex;align-items:center;justify-content:center;font:300 1.2rem var(--sans)}
+.cat-fold[open]>summary::after{content:"−"!important;background:#1F4FA8;color:#fff}
+.cat-fold[open]>summary{margin-bottom:14px}
+#zone{padding:56px 0 24px!important}
+#zone .section-head h2{font-size:1.5rem!important}
+@media(max-width:1000px){.cx .cat.wide .tx{width:auto}}
+@media(max-width:680px){.cx .step::before{position:static!important;margin-bottom:12px}.cx .steps{padding-top:0!important}}
+/* catalogue détaillé */
+div.wrap:has(>details.cat-fold){max-width:1136px!important;margin:0 auto!important;padding:8px 0 36px!important}
+@media(max-width:1180px){div.wrap:has(>details.cat-fold){padding:8px 20px 36px!important}}
+.cat-fold details.svc summary::after{grid-column:-2}
+.cat-fold details.svc{border:1px solid #D5DBE5!important;border-left:4px solid #1F4FA8!important;border-radius:3px;background:#fff;margin:0 0 10px!important;transition:box-shadow .2s}
+.cat-fold details.svc:last-of-type{border-bottom:1px solid #D5DBE5!important}
+.cat-fold details.svc:hover,.cat-fold details.svc[open]{box-shadow:0 10px 26px rgba(31,79,168,.12)}
+.cat-fold details.svc summary{display:grid!important;grid-template-columns:1fr auto 34px;align-items:center;gap:14px;padding:18px 20px!important;color:#0B1A2E!important;font-size:1.1rem!important}
+.cat-fold details.svc summary .svc-tag{display:inline-block!important;margin:0!important;justify-self:end;background:#E7EEFA;color:#1F4FA8!important;font-weight:600!important;font-size:.66rem!important;letter-spacing:.07em;padding:5px 10px;border-radius:2px;white-space:nowrap}
+.cat-fold details.svc summary::after{content:"+"!important;width:30px;height:30px;border-radius:50%;border:1px solid #1F4FA8;color:#1F4FA8!important;display:flex;align-items:center;justify-content:center;font-size:1.1rem;line-height:1}
+.cat-fold details.svc[open] summary::after{background:#1F4FA8;color:#fff!important;transform:none!important;content:"−"!important}
+.cat-fold .doc-list{padding:0 20px 20px!important}
+.cat-fold .doc-list li{color:#33415C!important}
+@media(max-width:640px){.cat-fold details.svc summary{grid-template-columns:1fr 34px}.cat-fold details.svc summary .svc-tag{grid-column:1;grid-row:2;justify-self:start;white-space:normal}.cat-fold details.svc summary::after{grid-column:2;grid-row:1/span 2}}
+</style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10M10 19.5v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -536,11 +580,14 @@ section{padding:100px 0}
 </div></div>
 <section id="prestations"><div class="wrap"><h2>Quelle démarche vous concerne ?</h2><p class="lead">Chaque page vous indique les pièces à fournir, le tarif et les délais.</p>
 <div class="cats">
-<a class="cat big" href="03-stc-monaco.html"><img src="images/monaco-porsche-stc.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3M3 15h18M3 15v3h3v-3M18 15v3h3v-3"/><circle cx="7.5" cy="12" r=".6"/><circle cx="16.5" cy="12" r=".6"/></svg></span><span class="tx"><h3>Véhicule à Monaco</h3><p>Immatriculation, estampille, permis monégasque, véhicule venant de l’étranger.</p><span class="go">Voir les démarches</span></span></a>
-<a class="cat" href="02-ants-france.html"><img src="images/card-ants-porsche.webp" alt=""><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span class="tx"><h3>Carte grise en France</h3><p>Changement de titulaire, d’adresse, duplicata.</p><span class="go">Voir les démarches</span></span></a>
+<a class="cat big" href="03-stc-monaco.html"><img src="images/monaco-porsche-stc.jpg" alt=""><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3M3 15h18M3 15v3h3v-3M18 15v3h3v-3"/><circle cx="7.5" cy="12" r=".6"/><circle cx="16.5" cy="12" r=".6"/></svg></span><span class="tx"><h3>Immatriculer à Monaco</h3><p>Véhicule neuf, d’occasion ou venant de l’étranger : immatriculation, estampille, duplicata.</p><span class="go">Voir les démarches</span></span></a>
+<a class="cat" href="02-ants-france.html"><img src="images/card-ants-porsche.webp" alt=""><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span class="tx"><h3>Immatriculer en France</h3><p>Carte grise, changement de titulaire ou d’adresse, duplicata.</p><span class="go">Voir les démarches</span></span></a>
 <a class="cat" href="05-maritime-monaco.html"><img src="images/monaco-yachts-port.jpg" alt="" style="object-position:85% 88%"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M4 15c0 3 3.5 6 8 6s8-3 8-6"/></svg></span><span class="tx"><h3>Bateau</h3><p>Pavillon monégasque ou français, vente, permis.</p><span class="go">Voir les démarches</span></span></a>
-<a class="cat wide" href="07-pose-plaques.html"><img src="images/monaco-ferrari-cache.jpg" alt="" style="object-position:50% 70%"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="10" rx="1.5"/><path d="M6 12h2M10 12h2M14 12h4"/></svg></span><span class="tx"><h3>Pose de plaques</h3><p>Nous posons vos plaques chez vous ou sur votre lieu de travail, à Monaco et sur la Côte d’Azur.</p><span class="go">En savoir plus</span></span></a>
+<a class="cat wide" href="07-pose-plaques.html"><img src="images/monaco-ferrari-cache.jpg" alt="" style="object-position:50% 70%"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="10" rx="1.5"/><path d="M6 12h2M10 12h2M14 12h4"/></svg></span><span class="tx"><h3>Plaques d’immatriculation</h3><p>Nous les posons à votre domicile ou sur votre lieu de travail, sur rendez-vous, à Monaco et sur la Côte d’Azur.</p><span class="go">En savoir plus</span></span></a>
 </div></div></section>
+</div>
+<div class="cx"><section id="methode" style="padding-top:0"><div class="wrap"><h2>Trois étapes, un seul contact.</h2><p class="lead">Vous remettez vos pièces en main propre. Nous faisons le reste.</p>
+<div class="steps"><div class="step"><h3>Vous nous contactez</h3><p>Un message ou un appel : nous identifions la bonne démarche et la liste exacte des pièces.</p></div><div class="step"><h3>Nous préparons et déposons</h3><p>Dossier vérifié avant dépôt, puis suivi auprès de l’administration.</p></div><div class="step"><h3>Vous recevez votre titre</h3><p>Remise en main propre, ou livraison sécurisée.</p></div></div></div></section>
 </div>
 <div class="wrap" style="padding-top:8px;padding-bottom:36px"><details class="cat-fold"><summary>Voir toutes les démarches en détail</summary>
 <section class="cat-section" id="catalogue">
@@ -768,8 +815,8 @@ section{padding:100px 0}
         </details>
 
         <details class="svc">
-          <summary>Permis de conduire<span class="svc-tag">EXAMEN · ÉCHANGE · INTERNATIONAL</span></summary>
-          <div class="doc-list"><ul><li><a href="stc-permis-examen.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Passer le permis (B, moto, poids lourds)</a></li><li><a href="stc-permis-echange.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Échange d'un permis étranger</a></li><li><a href="stc-permis-international.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Permis de conduire international</a></li><li><a href="stc-permis-renouvellement.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Renouvellement, modification, attestation de validité</a></li><li><a href="stc-permis-perte-vol.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Perte, vol, suspension</a></li></ul></div>
+          <summary>Permis de conduire international<span class="svc-tag">DÉLIVRANCE · RENOUVELLEMENT</span></summary>
+          <div class="doc-list"><ul><li><a href="stc-permis-international.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(198,150,104,0.6)">Permis de conduire international</a></li></ul></div>
         </details>
 
         <details class="svc">
@@ -854,12 +901,12 @@ section{padding:100px 0}
       <div class="kicker">Monaco · Côte d'Azur</div>
       <h2>Immatriculer son véhicule à Monaco, obtenir sa carte grise en France.</h2>
     </div>
-    <p>Marir Service Admin accompagne particuliers et professionnels dans leurs démarches administratives : immatriculation d'un véhicule à Monaco auprès du Service des Titres de Circulation (STC), carte grise en France via l'ANTS, immatriculation d'un bateau ou d'un jet-ski sous pavillon français ou monégasque, permis de conduire monégasque et pose de plaques d'immatriculation à votre domicile.</p>
+    <p>Marir Service Admin accompagne particuliers et professionnels dans leurs démarches administratives : immatriculation d'un véhicule à Monaco auprès du Service des Titres de Circulation (STC), carte grise en France via l'ANTS, immatriculation d'un bateau ou d'un jet-ski sous pavillon français ou monégasque, permis de conduire international et pose de plaques d'immatriculation à votre domicile.</p>
     <p>Que vous résidiez à Monaco ou sur la Côte d'Azur, vous remettez vos pièces en main propre : nous vérifions votre dossier, le déposons auprès de l'administration compétente et le suivons jusqu'à la remise du titre. Nous nous déplaçons à votre domicile ou sur votre lieu de travail, y compris entre midi et deux pour les personnes qui travaillent. Rendez-vous de 6 h à 20 h, 7 jours sur 7.</p>
     <ul class="seo-links">
       <li><a href="stc-neuf.html">Immatriculer un véhicule neuf à Monaco</a></li>
       <li><a href="stc-occasion.html">Immatriculer un véhicule d'occasion à Monaco</a></li>
-      <li><a href="stc-permis-echange.html">Échanger son permis étranger à Monaco</a></li>
+      <li><a href="stc-permis-international.html">Obtenir un permis de conduire international</a></li>
       <li><a href="ants-occasion.html">Carte grise d'un véhicule d'occasion</a></li>
       <li><a href="ants-import-ue.html">Importer un véhicule de l'Union européenne</a></li>
       <li><a href="ants-changement-adresse.html">Changer l'adresse de sa carte grise</a></li>
@@ -870,9 +917,6 @@ section{padding:100px 0}
   </div>
 </section>
 
-<div class="cx"><section id="methode" style="padding-top:0"><div class="wrap"><h2>Trois étapes, un seul contact.</h2><p class="lead">Vous remettez vos pièces en main propre. Nous faisons le reste.</p>
-<div class="steps"><div class="step"><h3>Vous nous contactez</h3><p>Un message ou un appel : nous identifions la bonne démarche et la liste exacte des pièces.</p></div><div class="step"><h3>Nous préparons et déposons</h3><p>Dossier vérifié avant dépôt, puis suivi auprès de l’administration.</p></div><div class="step"><h3>Vous recevez votre titre</h3><p>Remise en main propre, ou livraison sécurisée.</p></div></div></div></section>
-</div>
 
 <section class="sec-zones" id="zones-desservies">
   <div class="wrap">
