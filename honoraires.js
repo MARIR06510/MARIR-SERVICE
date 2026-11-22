@@ -11,7 +11,7 @@ window.HONORAIRES_NOTES = {
   "stc-pose-plaque": "Hors coût des plaques.",
   "ants-pose-plaque": "Hors coût des plaques.",
   "ants-import-ue": "Quitus fiscal compris. Hors droits et taxes de l'administration.",
-  "ants-import-hors-ue": "Conformité DREAL comprise. Hors droits et taxes de l'administration.",
+  "ants-import-hors-ue": "Hors droits et taxes de l'administration. Le certificat de conformité ou la réception DREAL reste à obtenir par le client.",
   "ants-collection": "Dossier FFVE (attestation de véhicule de collection) compris. Hors droits et taxes de l'administration.",
   "ants-coc": "Hors prix du certificat de conformité.",
   "ants-permis": "En cas de perte : timbre fiscal de 25 € en sus. Hors droits et taxes de l'administration."
