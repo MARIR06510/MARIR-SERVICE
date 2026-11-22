@@ -26,7 +26,7 @@ window.HONORAIRES = {
   "ants-diplomatiques": "49 €",
   "ants-duplicata": "39 €",
   "ants-import-hors-ue": "169 €",
-  "ants-import-ue": "149 €",
+  "ants-import-ue": "169 €",
   "ants-levee-gage": "19 €",
   "ants-modification-technique": "49 €",
   "ants-neuf": "49 €",
