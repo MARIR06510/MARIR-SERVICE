@@ -35,7 +35,7 @@ window.HONORAIRES = {
   "ants-permis": "65 €",
   "ants-pose-plaque": "49 €",
   "ants-provenance-monaco": "99 €",
-  "ants-quitus-fiscal": "49 €",
+  "ants-quitus-fiscal": "69 €",
   "ants-ww-particuliers": "139 €",
   "ants-professionnels": "Sur demande",
   "ants-rectification": "49 €",
