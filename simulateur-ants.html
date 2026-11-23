@@ -410,6 +410,7 @@ function calc(){
       r.rows.forEach(x=>rows.push(x));t+=r.tot;
     }
     rows.push(['Y.4 — Taxe fixe de gestion',fmt(11)]);t+=11;
+    t=Math.round(t);rows.push(['Sous-total arrondi à '+fmt(t),'',1]);
     rows.push(['Y.5 — Redevance d\'acheminement',fmt(2.76)]);t+=2.76;
   }else if(d==='dup'){
     rows.push(['Y.4 — Taxe fixe de gestion',fmt(11)]);rows.push(['Y.5 — Redevance d\'acheminement',fmt(2.76)]);t=13.76;
